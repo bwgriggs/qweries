@@ -4,6 +4,10 @@
   "content": "SELECT *\nFROM bilbo mt\nWHERE mt.account = '1334545773'",
   "author": "bwgriggs",
   "created_at": "2025-05-24T17:44:41.701888-05:00",
-  "modified_at": "0001-01-01T00:00:00Z",
-  "version": 1
+  "modified_by": "bwgriggs",
+  "modified_at": "2025-05-24T17:45:18.078508-05:00",
+  "version": 2,
+  "notes": {
+    "notes-2": "This was a test"
+  }
 }
