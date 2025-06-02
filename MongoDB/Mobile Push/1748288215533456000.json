@@ -1,9 +1,13 @@
 {
-  "title": "Insights Query 999",
+  "title": "Query 999",
   "description": "# 🛠 Adding an App Icon to Your Golang Fyne App (macOS \u0026 Windows)\n\nThis guide explains how to embed an app icon for your Go + Fyne application on **macOS** and **Windows** platforms.\n\n---\n\n## ✅ 1. Prepare Your App Icon\n\n- Format: `.png` (Fyne-compatible)\n- Recommended size: **512×512**\n- Save as: `Icon.png`\n\n---\n\n## ✅ 2. Set Icon in Go Code\n\nIn your `main.go`:\n\n```go\na := app.NewWithID(\"com.acoustic.qaa\")\n\nicon, err := fyne.LoadResourceFromPath(\"Icon.png\")\nif err == nil {\n    a.SetIcon(icon)\n}\n```\n\nThis sets the icon for the app window and dock/taskbar.\n\n---\n\n## 🍎 3. macOS: Embed Icon in .app Bundle\n\nUse the `fyne` CLI tool:\n\n```bash\nfyne package -os darwin -icon Icon.png\n```\n\n- Generates a proper `.app` with `Icon.png` embedded\n- Places icon in `Contents/Resources/`\n- Optionally modify `Info.plist` to customize further\n\n---\n\n## 🪟 4. Windows: Embed Icon in .exe with `.ico` + `.syso`\n\n### Step-by-Step:\n\n#### A. Convert `.png` to `.ico`\n\nUse a free online tool like:  \nhttps://www.icoconverter.com\n\nSave it as `app.ico`.\n\n---\n\n#### B. Create `resource.rc` file\n\n```rc\napp ICON \"app.ico\"\n```\n\n---\n\n#### C. Compile `.rc` to `.syso`\n\nYou need `windres` from `mingw-w64`.\n\n```bash\nx86_64-w64-mingw32-windres resource.rc -O coff -o resource.syso\n```\n\n---\n\n#### D. Build the Windows binary\n\n```bash\nGOOS=windows GOARCH=amd64 go build -ldflags -H=windowsgui -o yourapp.exe\n```\n\n- `-H=windowsgui` disables the console window\n- `resource.syso` must be in the same folder as `main.go`\n\n---\n\n## 🧠 Summary\n\n| Platform  | Method |\n|-----------|--------|\n| **macOS** | `fyne package -os darwin -icon Icon.png` |\n| **Windows** | Convert `.png` to `.ico`, use `windres` to make `.syso`, build with `go build` |\n| **Both** | Use `a.SetIcon()` in Go code for runtime icon setting |\n\n---\n\nLet me know if you want a downloadable `.rc` or sample script!",
   "content": "SELECT *\nFROM thisthat\nWHERE date = NOW;",
   "author": "bwgriggs",
   "created_at": "2025-05-26T14:36:55.533456-05:00",
-  "modified_at": "0001-01-01T00:00:00Z",
-  "version": 1
+  "modified_by": "bwgriggs",
+  "modified_at": "2025-06-02T13:03:10.478241-05:00",
+  "version": 2,
+  "notes": {
+    "notes-2": "better titles"
+  }
 }
